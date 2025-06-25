@@ -1,35 +1,20 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App';
+import React, { useState } from 'react';
+import { Box, Button, TextField, Typography, Paper } from '@mui/material';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setToken } = useContext(AuthContext);
-  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const res = await fetch('https://backend.zapsale.com.pl/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
-    if (res.ok) {
-      const data = await res.json();
-      setToken(data.token);
-      navigate('/');
-    } else {
-      alert('Login failed');
-    }
+  const handleSubmit = () => {
+    alert(`Logging in with ${email}`);
   };
 
   return (
-    <form onSubmit={handleLogin} className="space-y-4 max-w-sm">
-      <h1 className="text-xl font-bold">Login</h1>
-      <input type="email" placeholder="Email" className="w-full p-2 border rounded" value={email} onChange={e => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" className="w-full p-2 border rounded" value={password} onChange={e => setPassword(e.target.value)} />
-      <button className="bg-blue-600 text-white px-4 py-2 rounded">Log In</button>
-    </form>
+    <Paper elevation={3} sx={{ p: 4, maxWidth: 400, mx: 'auto' }}>
+      <Typography variant="h5" gutterBottom>Login</Typography>
+      <TextField label="Email" fullWidth margin="normal" value={email} onChange={e => setEmail(e.target.value)} />
+      <TextField label="Password" type="password" fullWidth margin="normal" value={password} onChange={e => setPassword(e.target.value)} />
+      <Button variant="contained" fullWidth onClick={handleSubmit}>Login</Button>
+    </Paper>
   );
 };
