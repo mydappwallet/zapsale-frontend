@@ -8,7 +8,7 @@ export const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://backend.zapsale.com.pl/auth/register', {
+    const res = await fetch('https://backend.zapsale.com.pl:5000/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

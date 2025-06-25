@@ -10,7 +10,7 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://backend.zapsale.com.pl/auth/login', {
+    const res = await fetch('https://backend.zapsale.com.pl:5000/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

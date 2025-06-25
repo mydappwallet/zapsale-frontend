@@ -9,7 +9,7 @@ export const FlowList = () => {
 
   useEffect(() => {
     const fetchFlows = async () => {
-      const res = await fetch('https://backend.zapsale.com.pl/flows/list', {
+      const res = await fetch('https://backend.zapsale.com.pl:5000/flows/list', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -22,7 +22,7 @@ export const FlowList = () => {
 
   const deleteFlow = async (id) => {
     if (!window.confirm('Are you sure you want to delete this flow?')) return;
-    const res = await fetch(`https://backend.zapsale.com.pl/flows/${id}`, {
+    const res = await fetch(`https://backend.zapsale.com.pl:5000/flows/${id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` }
     });
