@@ -9,7 +9,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const res = await fetch('https://backend.zapsale.com.pl:5000/auth/profile', {
+      const res = await fetch('https://backend.zapsale.com.pl/auth/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -21,7 +21,7 @@ export const Profile = () => {
   }, [token]);
 
   const updateProfile = async () => {
-    const res = await fetch('https://backend.zapsale.com.pl:5000/auth/profile', {
+    const res = await fetch('https://backend.zapsale.com.pl/auth/profile', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
