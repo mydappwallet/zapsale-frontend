@@ -23,7 +23,7 @@ export const EditFlow = () => {
 
   useEffect(() => {
     const fetchFlow = async () => {
-      const res = await fetch(`http://localhost:5000/flows/${id}`, {
+      const res = await fetch(`https://backend.zapsale.com.pl/flows/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -39,7 +39,7 @@ export const EditFlow = () => {
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
 
   const updateFlow = async () => {
-    const res = await fetch(`http://localhost:5000/flows/${id}`, {
+    const res = await fetch(`https://backend.zapsale.com.pl/flows/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

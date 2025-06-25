@@ -23,7 +23,7 @@ export const NewFlow = () => {
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
 
   const saveNewFlow = async () => {
-    const res = await fetch('http://localhost:5000/flows/save', {
+    const res = await fetch('https://backend.zapsale.com.pl/flows/save', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
